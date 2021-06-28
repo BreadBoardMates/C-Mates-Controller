@@ -1,19 +1,15 @@
 ![image](logo.png)
 
 <br/>
-<br/>
 
 # **Mates Controller C Library**
 
 This is a C Library developed to be used with Mates Studio's Commander and Architect Environments. This library is aimed to be simple enough to learn for beginners and feature-rich for experienced developers.
 
 <br/>
-<br/>
 
 ## **Library Discussion**
 ----------------------------------------------------------------------------
-
-<br/>
 
 This section serves to give brief discussion about the setup requirements and usable functions included in the library. For functional examples on how to use these functions in a project, refer to the examples folder.
 
