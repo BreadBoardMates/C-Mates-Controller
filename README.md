@@ -106,6 +106,57 @@ The RX count function should be in the format: _uint8\_t rxCountFnc(void)_
 
 <br/>
 
+## **mates_setBootTimeout(timeout)**
+
+This function can be used to adjust the boot timeout period that the library waits for during boot or reset. The default boot timeout is 5 seconds.
+
+It is usually unncessary to use this function unless the display needs more time for setup and the ready signal (0x06) is not being received on time.
+
+| Parameters | Type     | Description                                                                   |
+|:----------:|:--------:| ----------------------------------------------------------------------------- |
+| timeout    | uint16_t | The new timeout period in milliseconds to wait for when resetting the display |
+
+**Return:** None
+
+#### Example:
+    mates_setBootTimeout(6000); // Sets the boot timeout period to 6 seconds
+
+<br/>
+
+## **mates_setCmdTimeout(timeout)**
+
+This function can be used to adjust the command timeout period that the library waits for when waiting for an ACK/NACK response. The default command timeout is 500 milliseconds.
+
+It is usually unncessary to use this function unless the display needs more time to accomplised the command.
+
+| Parameters | Type     | Description                                                                  |
+|:----------:|:--------:| ---------------------------------------------------------------------------- |
+| timeout    | uint16_t | The new timeout period in milliseconds to wait for when waiting for ACK/NACK |
+
+**Return:** None
+
+#### Example:
+    mates_setCmdTimeout(600); // Sets the command timeout period to 600 milliseconds
+
+<br/>
+
+## **mates_setRspTimeout(timeout)**
+
+This function can be used to adjust the command timeout period that the library waits for when waiting for an ACK/NACK response and a return value. The default response timeout is 500 milliseconds.
+
+It is usually unncessary to use this function unless the display needs more time to accomplised the command.
+
+| Parameters | Type     | Description                                                                  |
+|:----------:|:--------:| ---------------------------------------------------------------------------- |
+| timeout    | uint16_t | The new timeout period in milliseconds to wait for when waiting for response |
+
+**Return:** None
+
+#### Example:
+    mates_setRspTimeout(1000); // Sets the response timeout period to 1 second
+
+<br/>
+
 ## **mates_begin()**
 
 This function must be used once to check required functions, reset the display and wait until the display is ready.
@@ -177,7 +228,7 @@ This function can be used to set the backlight level to the _value_ specified.
 **Return:** success or failure (_boolean_)
 
 #### Example: 
-    mates_setPage(1); // Navigate to Page1
+    mates_setBacklight(7); // Set backlight to level 7
 
 <br/>
 
@@ -375,9 +426,9 @@ This function can be used to query the parameter (_param_) of the target widget,
 
 This function can be used to adjust the max string buffer _size_ to be used when composing a string for a TextArea or a PrintArea. The string composition is done by [mates_updateTextArea](#mates_updatetextareaindex-format-), [mates_appendArrayToPrintArea](#mates_appendarraytoprintareaindex-buffer-len) and [mates_appendStringToPrintArea](#mates_appendstringtoprintareaindex-format-)
 
-| Parameters | Type  | Description         |
-|:----------:|:-----:| ------------------- |
-| size       | int   | The new buffer size |
+| Parameters | Type     | Description         |
+|:----------:|:--------:| ------------------- |
+| size       | uint16_t | The new buffer size |
 
 **Return:** None
 

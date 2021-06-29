@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "includes/commands.h"
 #include "includes/widgets.h"
@@ -25,6 +26,8 @@ extern "C" {
 
 #define __MATES_STRING_BUFFER_SIZE__            50
 #define __MATES_BOOT_TIMEOUT__                  5000
+#define __MATES_CMD_TIMEOUT__                   500
+#define __MATES_RSP_TIMEOUT__                   500
     
 // Prerequisite Functions
 extern void (* _mates_Reset)(void);
@@ -40,8 +43,10 @@ void mates_attachWriteFnc(void (* writeFnc)(uint8_t));
 void mates_attachReadFnc(uint8_t(* readFnc)(void));
 void mates_attachRxCountFnc(uint8_t(* rxCountFnc)(void));
 
-bool mates_begin(void);
 void mates_setBootTimeout(uint16_t timeout);
+void mates_setRspTimeout(uint16_t timeout);
+void mates_setCmdTimeout(uint16_t timeout);
+bool mates_begin(void);
 bool mates_reset(void);
 bool mates_softReset(void);
 
@@ -51,8 +56,6 @@ bool mates_setPage(uint16_t page);
 int16_t mates_getPage(void);
 
 // Common widget functions
-//bool mates_setWidgetValue(int16_t widget, int16_t value);
-//int16_t mates_getWidgetValue(int16_t widget);
 bool mates_setWidgetValue(MatesWidget type, uint8_t index, int16_t value);
 int16_t mates_getWidgetValue(MatesWidget type, uint8_t index);
 
@@ -64,32 +67,28 @@ bool mates_setLedSpectrumValue(uint8_t index, uint8_t gaugeIndex, uint8_t value)
 bool mates_setMediaSpectrumValue(uint8_t index, uint8_t gaugeIndex, uint8_t value);
 
 // Non-Image (GCI) common widget functions
-//bool mates_setWidgetParam(int16_t widget, int16_t param, int16_t value);
-//int16_t mates_getWidgetParam(int16_t widget, int16_t param);
 bool mates_setWidgetParam(MatesWidget type, uint8_t index, int16_t param, int16_t value);
 int16_t mates_getWidgetParam(MatesWidget type, uint8_t index, int16_t param);
 
 // TextArea and PrintArea support functions
-void mates_setBufferSize(int size);
+void mates_setBufferSize(uint16_t size);
 
 // TextArea functions    
 bool mates_clearTextArea(uint16_t index);
-bool mates_updateTextArea(uint16_t index, const char * format, ...);
+bool mates_updateTextArea(uint16_t index, const char * str);
 
 // PrintArea functions
 bool mates_clearPrintArea(uint16_t index);
 bool mates_setPrintAreaColor565(uint16_t index, int16_t rgb565);
 bool mates_setPrintAreaColorRGB(uint16_t index, uint8_t r, uint8_t g, uint8_t b);
 bool mates_appendArrayToPrintArea(uint16_t index, const int8_t * buf, uint16_t len);
-bool mates_appendStringToPrintArea(uint16_t index, const char * format, ...);
+bool mates_appendStringToPrintArea(uint16_t index, const char * str);
 
 // Scope functions
-bool mates_appendToScope(uint16_t index, const int16_t * buf, int16_t len);
+bool mates_appendToScope(uint16_t index, const int16_t * buf, uint16_t len);
 
 // Dot Matrix functions
-bool mates_updateDotMatrix(uint16_t index, const char * format, ...);
-
-// Private Variables and Functions
+bool mates_updateDotMatrix(uint16_t index, const char * str);
 
 // Utility functions
 char * mates_getVersion(void);
@@ -115,7 +114,6 @@ int16_t _mates_ReadResponse(uint16_t timeout);
 // Widget Support Functions
 bool _mates_setWidgetLongValue(int16_t widget, int32_t value);
 bool _mates_setWidgetFloatValue(int16_t widget, float value);
-bool _mates_updateDotMatrix(uint16_t index, const int8_t * buf, uint16_t len);
 
 #ifdef	__cplusplus
 }
