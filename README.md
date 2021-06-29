@@ -454,24 +454,19 @@ This function can be used to clear the TextArea specified by_index_.
 
 <br/>
 
-## **mates_updateTextArea(index, format, ...)**
+## **mates_updateTextArea(index, str)**
 
 This function can be used to update the contents of the TextArea specified by_index_ with the text formed by _format_ and the additional arguments.
 
 | Parameters | Type         | Description                                                    |
 |:----------:|:------------:| -------------------------------------------------------------- |
 | index      | uint16_t     | The index of the target TextArea widget                        |
-| format     | const char * | The text to be written to the Text Area                        |
-| ...        | -            | Additional values to replace the format specifiers in _format_ |
+| str        | const char * | The text to be written to the Text Area                        |
 
 **Return:** success or failure (_boolean_)
 
-#### Example No. 1: 
+#### Example: 
     mates_updateTextArea(2, "Mates"); // Update TextArea2 to "Mates"
-
-#### Example No. 2: 
-    int value = 76;
-    mates_updateTextArea(3, "Value is %d", value); // Print value to TextArea3
 
 <br/>
 
@@ -542,24 +537,19 @@ This function can be used to append a number of bytes (_len_) from the data in _
     
 <br/>
 
-## **mates_appendStringToPrintArea(index, format, ...)**
+## **mates_appendStringToPrintArea(index, str)**
 
 This function can be used to append contents to the PrintArea specified by_index_ with the text formed by _format_ and the additional arguments.
 
 | Parameters | Type         | Description                                                    |
 |:----------:|:------------:| -------------------------------------------------------------- |
 | index      | uint16_t     | The index of the target Print Area widget                      |
-| format     | const char * | The text to be written to the PrintArea                        |
-| ...        | -            | Additional values to replace the format specifiers in _format_ |
+| str        | const char * | The text to be written to the PrintArea                        |
 
 **Return:** success or failure (_boolean_)
 
-#### Example No. 1: 
+#### Example: 
     mates_appendStringToPrintArea(8, "Mates"); // Append "Mates" to PrintArea8
-
-#### Example No. 2: 
-    int value = 108;
-    mates_appendStringToPrintArea(9, "Value: %d", value); // Append value as text to PrintArea9
 
 <br/>
 
@@ -581,24 +571,19 @@ This function can be used to append a number of 16-bit values (_len_) from the d
 
 <br/>
 
-## **mates_updateDotMatrix(index, format, ...)**
+## **mates_updateDotMatrix(index, str)**
 
 This function can be used to append contents to the PrintArea specified by_index_ with the text formed by _format_ and the additional arguments.
 
 | Parameters | Type         | Description                                                    |
 |:----------:|:------------:| -------------------------------------------------------------- |
 | index      | uint16_t     | The index of the target Print Area widget                      |
-| format     | const char * | The text to be written to the PrintArea                        |
-| ...        | -            | Additional values to replace the format specifiers in _format_ |
+| str        | const char * | The text to be written to the PrintArea                        |
 
 **Return:** success or failure (_boolean_)
 
-#### Example No. 1: 
+#### Example: 
     mates_updateDotMatrix(8, "Mates"); // Update DotMatrix0 to "Mates"
-
-#### Example No. 2: 
-    int value = 17;
-    mates_updateDotMatrix(9, "Value: %d", value); // Update DotMatrix0 to show value
 
 <br/>
 
