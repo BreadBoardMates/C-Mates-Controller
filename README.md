@@ -295,7 +295,7 @@ This function can be used to query the value of the widget specified by _type_ a
 
 <br/>
 
-## **mates_setLedDigitsValue(index, value)**
+## **mates_setLedDigitsShortValue(index, value)**
 
 This function can be used to set the 16-bit integer _value_ of the LedDigits specified by _index_
 
@@ -307,13 +307,13 @@ This function can be used to set the 16-bit integer _value_ of the LedDigits spe
 **Return:** success or failure (_boolean_)
 
 #### Example: 
-    mates_setLedDigitsValue(2, 50); // Set value of LedDigits2 to 50
+    mates_setLedDigitsShortValue(2, 50); // Set value of LedDigits2 to 50
 
 **Note:** _This function is only applicable for **Int16** LedDigits_
 
 <br/>
 
-## **mates_setLedDigitsValue(index, value)**
+## **mates_setLedDigitsLongValue(index, value)**
 
 This function can be used to set the 32-bit integer _value_ of the LedDigits specified by _index_
 
@@ -325,27 +325,46 @@ This function can be used to set the 32-bit integer _value_ of the LedDigits spe
 **Return:** success or failure (_boolean_)
 
 #### Example: 
-    mates_setLedDigitsValue(0, 602214076); // Set value of LedDigits0 to 602214076
+    mates_setLedDigitsLongValue(0, 602214076); // Set value of LedDigits0 to 602214076
 
 **Note:** _This function is only applicable for **Int32** LedDigits_
 
 <br/>
 
-## **mates_setLedDigitsValue(index, value)**
+## **mates_setLedDigitsFloatValue(index, value)**
 
 This function can be used to set the floating point _value_ of the LedDigits specified by _index_
 
 | Parameters | Type        | Description                       |
 |:----------:|:-----------:| --------------------------------- |
 | index      | int8_t      | The index of the target LedDigits |
-| value      | int32_t     | The new value for the LedDigits   |
+| value      | float       | The new value for the LedDigits   |
 
 **Return:** success or failure (_boolean_)
 
 #### Example: 
-    mates_setLedDigitsValue(1, 3.1416); // Set value of LedDigits1 to 3.1416
+    mates_setLedDigitsFloatValue(1, 3.1416); // Set value of LedDigits1 to 3.1416
 
 **Note:** _This function is only applicable for **Float** LedDigits_
+
+<br/>
+
+## **mates_setSpectrumValue(type, index, gaugeIndex, value)**
+
+This function can be used to set the _value_ of a specified _gaugeIndex_ of the Spectrum widget determined by _type_ and _index_.
+
+| Parameters | Type        | Description                                       |
+|:----------:|:-----------:| ------------------------------------------------- |
+| type       | MatesWidget | The type of the target Spectrum widget            |
+| index      | int8_t      | The index of the target Spectrum widget           |
+| gaugeIndex | int8_t      | The gauge index of the target Spectrum widget     |
+| value      | int16_t     | The new value for the column/row of the widget    |
+
+**Return:** success or failure (_boolean_)
+
+#### Example: 
+    mates_setLedSpectrumValue(5, 2, 64);
+    // Set value of gauge index 2 of LedSpectrum5 to 64
 
 <br/>
 
@@ -458,10 +477,10 @@ This function can be used to clear the TextArea specified by_index_.
 
 This function can be used to update the contents of the TextArea specified by_index_ with the text formed by _format_ and the additional arguments.
 
-| Parameters | Type         | Description                                                    |
-|:----------:|:------------:| -------------------------------------------------------------- |
-| index      | uint16_t     | The index of the target TextArea widget                        |
-| str        | const char * | The text to be written to the Text Area                        |
+| Parameters | Type         | Description                             |
+|:----------:|:------------:| --------------------------------------- |
+| index      | uint16_t     | The index of the target TextArea widget |
+| str        | const char * | The text to be written to the Text Area |
 
 **Return:** success or failure (_boolean_)
 
@@ -541,10 +560,10 @@ This function can be used to append a number of bytes (_len_) from the data in _
 
 This function can be used to append contents to the PrintArea specified by_index_ with the text formed by _format_ and the additional arguments.
 
-| Parameters | Type         | Description                                                    |
-|:----------:|:------------:| -------------------------------------------------------------- |
-| index      | uint16_t     | The index of the target Print Area widget                      |
-| str        | const char * | The text to be written to the PrintArea                        |
+| Parameters | Type         | Description                               |
+|:----------:|:------------:| ----------------------------------------- |
+| index      | uint16_t     | The index of the target Print Area widget |
+| str        | const char * | The text to be written to the PrintArea   |
 
 **Return:** success or failure (_boolean_)
 
@@ -575,10 +594,10 @@ This function can be used to append a number of 16-bit values (_len_) from the d
 
 This function can be used to append contents to the PrintArea specified by_index_ with the text formed by _format_ and the additional arguments.
 
-| Parameters | Type         | Description                                                    |
-|:----------:|:------------:| -------------------------------------------------------------- |
-| index      | uint16_t     | The index of the target Print Area widget                      |
-| str        | const char * | The text to be written to the PrintArea                        |
+| Parameters | Type         | Description                               |
+|:----------:|:------------:| ----------------------------------------- |
+| index      | uint16_t     | The index of the target Print Area widget |
+| str        | const char * | The text to be written to the PrintArea   |
 
 **Return:** success or failure (_boolean_)
 

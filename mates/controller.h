@@ -63,6 +63,7 @@ int16_t mates_getWidgetValue(MatesWidget type, uint8_t index);
 bool mates_setLedDigitsShortValue(uint8_t index, int16_t value);
 bool mates_setLedDigitsLongValue(uint8_t index, int32_t value);
 bool mates_setLedDigitsFloatValue(uint8_t index, float value);
+bool mates_setSpectrumValue(MatesWidget type, uint8_t index, uint8_t gaugeIndex, uint8_t value);
 bool mates_setLedSpectrumValue(uint8_t index, uint8_t gaugeIndex, uint8_t value);
 bool mates_setMediaSpectrumValue(uint8_t index, uint8_t gaugeIndex, uint8_t value);
 

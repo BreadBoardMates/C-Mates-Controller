@@ -143,6 +143,20 @@ bool mates_setLedDigitsFloatValue(uint8_t index, float value) {
     return _mates_setWidgetFloatValue((int16_t) ((MATES_LED_DIGITS << 8) | index), value);
 }
 
+bool mates_setSpectrumValue(MatesWidget type, uint8_t index, uint8_t gaugeIndex, uint8_t value) {
+    if ((type != MATES_LED_SPECTRUM) && (type != MATES_MEDIA_SPECTRUM)) {
+        matesError = MATES_ERROR_COMMAND_FAILED;
+        return false;
+    }
+    _mates_WriteCommand(MATES_CMD_SET_WIDGET_VALUE);
+    _mates_WriteByte((int8_t) type);
+    _mates_WriteByte((int8_t) index);
+    _mates_WriteByte((int8_t) gaugeIndex);
+    _mates_WriteByte((int8_t) value);
+    return _mates_WaitForACK(matesCmdTimeout); 
+}
+
+
 bool mates_setLedSpectrumValue(uint8_t index, uint8_t gaugeIndex, uint8_t value) {
     _mates_WriteCommand(MATES_CMD_SET_WIDGET_VALUE);
     _mates_WriteByte((int8_t) MATES_LED_SPECTRUM);
@@ -211,7 +225,7 @@ bool mates_clearPrintArea(uint16_t index) {
 }
 
 bool mates_setPrintAreaColor565(uint16_t index, int16_t rgb565) {
-    _mates_WriteCommand(MATES_CMD_CLR_PRINT_AREA);
+    _mates_WriteCommand(MATES_CMD_SET_PRINT_COLOR);
     _mates_WriteWord((int16_t) index);
     _mates_WriteWord(rgb565);
     return _mates_WaitForACK(matesCmdTimeout);
