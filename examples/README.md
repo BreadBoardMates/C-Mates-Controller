@@ -25,15 +25,15 @@ This section serves to list all included examples and give each a brief descript
 
 | Title               | Description                                           |
 |:-------------------:|:----------------------------------------------------- |
-| Numbered LEDs*       | Turn on each LED on at a time from 1 to 8 and back    |
-| Various Gauges*      | Update gauges from minimum to maximum and back        |
-| Day and Time*        | Print the day of the week and the current time        |
+| Numbered LEDs       | Turn on each LED on at a time from 1 to 8 and back    |
+| Various Gauges      | Update gauges from minimum to maximum and back        |
+| Day and Time        | Print the day of the week and the current time        |
 | Print Strings       | Print characters on a PrintArea widget                |
 | Print Hex Values    | Print hex values on a PrintArea widget                |
-| Audio Spectrum*      | Simulate random spectrum values and display on screen |
-| Various Digits*      | Write random short, long and float values to screen   |
-| Updating Scope*      | Updates simulated scope values to the screen          |
-| Update Dot Matrix*   | Prints simple messages at certain intervals           |
+| Audio Spectrum      | Simulate random spectrum values and display on screen |
+| Various Digits      | Write random short, long and float values to screen   |
+| Updating Scope      | Updates simulated scope values to the screen          |
+| Update Dot Matrix   | Prints simple messages at certain intervals           |
 | Page Navigation     | Simulate page widgets and switches between pages      |
 
 
